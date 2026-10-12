@@ -18,10 +18,11 @@ public class menu extends JFrame{
     MouseListener ml = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getPoint().x > 20 && e.getPoint().x < 136 && e.getPoint().y > 300 && e.getPoint().y < 336 ) {
+            if (e.getPoint().x > 10 && e.getPoint().x < 230 && e.getPoint().y > 220 && e.getPoint().y < 266 ) {
                 new test2();
             }
         }
+
 
 
         @Override
