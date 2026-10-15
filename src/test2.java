@@ -76,6 +76,7 @@ public class test2 extends JFrame{
                     repaint();
                 }
                 else if (e.getPoint().x > 300 && e.getPoint().x < 500 && e.getPoint().y > 250 && e.getPoint().y < 285) {
+                    dispose();
                     new menu();
                 }
             }
