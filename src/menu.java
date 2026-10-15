@@ -8,10 +8,13 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import static java.lang.System.exit;
+
 public class menu extends JFrame{
     public start button1 = new start();
     public control button2 = new control();
     public garage button3 = new garage();
+    public finish button4 = new finish();
     public BufferedImage fon;
 
 
@@ -19,7 +22,15 @@ public class menu extends JFrame{
         @Override
         public void mouseClicked(MouseEvent e) {
             if (e.getPoint().x > 10 && e.getPoint().x < 230 && e.getPoint().y > 220 && e.getPoint().y < 266 ) {
-                new test2();
+                dispose();
+                try {
+                    new test2();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+            else if (e.getPoint().x > 20 && e.getPoint().x < 50 && e.getPoint().y > 346 && e.getPoint().y < 400 ) {
+                System.exit(0);
             }
         }
 
@@ -66,6 +77,7 @@ public class menu extends JFrame{
         g.drawImage(button1.image, button1.x, button1.y, this);
         g.drawImage(button2.image, button2.x, button2.y, this);
         g.drawImage(button3.image, button3.x, button3.y, this);
+        g.drawImage(button4.image, button4.x, button4.y, this);
 
 
     }
