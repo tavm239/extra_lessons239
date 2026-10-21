@@ -11,7 +11,7 @@ public class start {
     start() //конструктор класса
     {
         x = 10;
-        y = 220;
+        y = 330;
         isVisible = true;
         try {
             image = ImageIO.read(new File("src/start.png"));

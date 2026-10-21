@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Random;
 
 public class test2 extends JFrame{
     public character pers = new character();
@@ -14,6 +15,12 @@ public class test2 extends JFrame{
     public pause button1 = new pause();
     public pause2 pause2 = new pause2();
     public BufferedImage fon;
+
+
+
+
+
+    int speed = 1;
 
     public KeyListener kl = new KeyListener() {
         @Override
@@ -23,42 +30,24 @@ public class test2 extends JFrame{
 
         @Override
         public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT && pers.x < 540)
-        {
-            pers.x++;
-            repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT && pers.x > 150) {
-            pers.x--;
-            repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP && pers.y > 28) {
-            pers.y--;
-            repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN && pers.y < 310) {
-            pers.y++;
-            repaint();
-        }
-            if (e.getKeyCode() == KeyEvent.VK_D && pers2.x < 540)
-            {
-                pers2.x++;
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT && pers.x < 995) {
+                pers.x++;
                 repaint();
             }
-            if (e.getKeyCode() == KeyEvent.VK_A && pers2.x > 150) {
-                pers2.x--;
+            if (e.getKeyCode() == KeyEvent.VK_LEFT && pers.x > 284) {
+                pers.x--;
                 repaint();
             }
-            if (e.getKeyCode() == KeyEvent.VK_W && pers2.y > 28) {
-                pers2.y--;
-                repaint();
-            }
-            if (e.getKeyCode() == KeyEvent.VK_S && pers2.y < 310) {
-                pers2.y++;
-                repaint();
-            }
-        }
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                speed++;
 
+            }
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                if (speed > 1) speed--;
+            }
+
+
+        }
         @Override
         public void keyReleased(KeyEvent e) {
 
@@ -71,17 +60,17 @@ public class test2 extends JFrame{
         public void mouseClicked(MouseEvent e) {
 
             if (pause2.isVisible) {
-                if (e.getPoint().x > 300 && e.getPoint().x < 500 && e.getPoint().y > 210 && e.getPoint().y < 245) {
+                if (e.getPoint().x >= 486 && e.getPoint().x <= 794 && e.getPoint().y >= 340 && e.getPoint().y <= 389) {
                     pause2.isVisible = false;
                     repaint();
                 }
-                else if (e.getPoint().x > 300 && e.getPoint().x < 500 && e.getPoint().y > 250 && e.getPoint().y < 285) {
+                else if (e.getPoint().x >= 486 && e.getPoint().x <= 793 && e.getPoint().y >= 404 && e.getPoint().y <= 453) {
                     dispose();
                     new menu();
                 }
             }
 
-            if (e.getPoint().x > 710 && e.getPoint().x < 790 && e.getPoint().y > 40 && e.getPoint().y < 72) {
+            if (e.getPoint().x > 1140 && e.getPoint().x < 1268 && e.getPoint().y > 40 && e.getPoint().y < 91) {
                 pause2.isVisible = true;
                 repaint();
             }
@@ -111,17 +100,47 @@ public class test2 extends JFrame{
     };
 
 
-    test2() {
+    test2() throws InterruptedException {
         try {
             fon = ImageIO.read(new File("src/fon.png"));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         setVisible(true);
-        setSize(800, 450);
+        setSize(1280, 720);
         setTitle("Заголовок окна");
         addKeyListener(kl);
         addMouseListener(ql);
+
+
+
+
+
+        while (true) {
+            if (pers2.y <= 720) {
+                pers2.y = pers2.y + speed;
+                repaint();
+                Thread.sleep(10);
+            }
+            else {
+                Random random = new Random();
+                int n = random.nextInt(4);
+                pers2.y = -141;
+                if (n == 0) {
+                    pers2.x = 318;
+                }
+                else if (n == 1) {
+                    pers2.x = 496;
+                }
+                else if (n == 2) {
+                    pers2.x = 684;
+                }
+                else if (n == 3) {
+                    pers2.x = 862;
+                }
+            }
+        }
+
     }
 
     public void paint(Graphics g)
@@ -139,8 +158,7 @@ public class test2 extends JFrame{
 
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InterruptedException {
         test2 name = new test2();
 
     }

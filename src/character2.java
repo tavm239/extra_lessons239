@@ -10,8 +10,8 @@ public class character2 {
 
     character2() //конструктор класса
     {
-        x = 180;
-        y = 150;
+        x = 318;
+        y = 0;
         isVisible = true;
         try {
             image = ImageIO.read(new File("src/car2.png"));

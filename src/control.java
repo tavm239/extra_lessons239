@@ -10,8 +10,8 @@ public class control {
 
     control() //конструктор класса
     {
-        x = 140;
-        y = 300;
+        x = 275;
+        y = 440;
         isVisible = true;
         try {
             image = ImageIO.read(new File("src/control.png"));

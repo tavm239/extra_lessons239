@@ -8,24 +8,28 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static java.lang.System.exit;
+
 
 public class menu extends JFrame{
     public start button1 = new start();
     public control button2 = new control();
     public garage button3 = new garage();
-    public finish button4 = new finish();
+    public exit button4 = new exit();
     public BufferedImage fon;
 
 
     MouseListener ml = new MouseListener() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getPoint().x > 10 && e.getPoint().x < 230 && e.getPoint().y > 220 && e.getPoint().y < 266 ) {
+            if (e.getPoint().x >=10 && e.getPoint().x <= 352 && e.getPoint().y > 330 && e.getPoint().y < 437) {
                 dispose();
-                new test2();
+                try {
+                    new test2();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
-            else if (e.getPoint().x > 20 && e.getPoint().x < 50 && e.getPoint().y > 346 && e.getPoint().y < 400 ) {
+            else if (e.getPoint().x >= 20 && e.getPoint().x <= 270 && e.getPoint().y > 490 && e.getPoint().y < 533 ) {
                 System.exit(0);
             }
         }
@@ -60,7 +64,7 @@ public class menu extends JFrame{
             throw new RuntimeException(e);
         }
         setVisible(true);
-        setSize(800, 450);
+        setSize(1280, 720);
         setTitle("Заголовок окна");
         addMouseListener(ml);
     }

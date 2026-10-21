@@ -11,7 +11,7 @@ public class garage {
     garage() //конструктор класса
     {
         x = 20;
-        y = 300;
+        y = 440;
         isVisible = true;
         try {
             image = ImageIO.read(new File("src/garage.png"));

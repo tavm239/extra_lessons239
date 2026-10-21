@@ -10,7 +10,7 @@ public class pause {
 
     pause() //конструктор класса
     {
-        x = 710;
+        x = 1140;
         y = 40;
         isVisible = true;
         try {

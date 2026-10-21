@@ -11,8 +11,8 @@ public class pause2 {
 
     pause2() //конструктор класса
     {
-        x = 240;
-        y = 135;
+        x = 384;
+        y = 216;
         isVisible = false;
         try {
             image = ImageIO.read(new File("src/pause2.png"));
